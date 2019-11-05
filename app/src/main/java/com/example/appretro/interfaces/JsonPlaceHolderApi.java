@@ -9,6 +9,9 @@ import retrofit2.http.GET;
 
 public interface JsonPlaceHolderApi {
 
-    @GET("posts")
+    //con el metodo GET vamos a hacer una consulta -> consumir datos
+    @GET("posts") //anotation: trae informacion de una parte de la URI(http://......./post)
+    //envia una invocacion al servidor y obtiene una respuesta que va a ser del tipo model (Post)
+    //dado que sopn varios -> List
     Call<List<Post>> getPosts();
 }

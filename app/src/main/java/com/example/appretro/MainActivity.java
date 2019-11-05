@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private void getPosts(){
         //objeto de retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("https://jsonplaceholder.typicode.com/") //La url base,
+                .addConverterFactory(GsonConverterFactory.create())//Gsonconverter: codifica y decodifica en json
                 .build();
 
         final JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
@@ -49,13 +49,11 @@ public class MainActivity extends AppCompatActivity {
                 List<Post> postList = response.body();
                 for(Post post: postList){
 
-
                     String contenido = "";
                     contenido += "userId: " + post.getUserId() +"\n";
                     contenido += "id: " + post.getId() +"\n";
                     contenido += "title: " + post.getTitle() +"\n";
                     contenido += "body: " + post.getBody() +"\n\n";
-
 
                     myJsonTextview.append(contenido);
                 }
